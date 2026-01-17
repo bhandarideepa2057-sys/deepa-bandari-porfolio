@@ -16,6 +16,10 @@ const App = () =>{
     document.documentElement.classList.add('dark');
   }, []);
 
+  useEffect(() => {
+    AOS.refresh()
+  }, [darkMode])
+
   const toggleDarkMode = () => {
     const newMode = !darkMode;
     setDarkMode(newMode);
