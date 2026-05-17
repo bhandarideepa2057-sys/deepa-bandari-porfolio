@@ -210,6 +210,8 @@ const App = () => {
     const title = "Deepa Bhandari | MSc Chemistry Student & Teacher"
     const description =
       "Deepa Bhandari is an MSc Chemistry student and educator focused on electrocatalysis, HER, OER, and sustainable energy research."
+    const canonicalUrl = "https://www.deepa-bhandari.com.np/"
+    const shareImage = "/og-image.svg"
 
     document.title = title
 
@@ -223,6 +225,23 @@ const App = () => {
     }
 
     ensureMeta('meta[name="description"]', { name: "description", content: description })
+    ensureMeta('meta[name="author"]', { name: "author", content: "Deepa Bhandari" })
+    ensureMeta('meta[name="keywords"]', {
+      name: "keywords",
+      content:
+        "Deepa Bhandari, MSc Chemistry, chemistry teacher, electrocatalysis, HER, OER, water splitting, sustainable energy, research portfolio"
+    })
+    ensureMeta('meta[name="robots"]', {
+      name: "robots",
+      content: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
+    })
+    let canonicalLink = document.head.querySelector('link[rel="canonical"]')
+    if (!canonicalLink) {
+      canonicalLink = document.createElement("link")
+      document.head.appendChild(canonicalLink)
+    }
+    canonicalLink.setAttribute("rel", "canonical")
+    canonicalLink.setAttribute("href", canonicalUrl)
     ensureMeta('meta[name="theme-color"]', {
       name: "theme-color",
       content: isDarkMode ? "#0b1020" : "#fbf7ff"
@@ -233,11 +252,19 @@ const App = () => {
       content: description
     })
     ensureMeta('meta[property="og:type"]', { property: "og:type", content: "website" })
-    ensureMeta('meta[property="og:image"]', { property: "og:image", content: heroImage })
+    ensureMeta('meta[property="og:url"]', { property: "og:url", content: canonicalUrl })
+    ensureMeta('meta[property="og:site_name"]', { property: "og:site_name", content: "Deepa Bhandari Portfolio" })
+    ensureMeta('meta[property="og:image"]', { property: "og:image", content: shareImage })
+    ensureMeta('meta[property="og:image:alt"]', { property: "og:image:alt", content: "Deepa Bhandari portfolio preview" })
+    ensureMeta('meta[property="og:image:width"]', { property: "og:image:width", content: "1200" })
+    ensureMeta('meta[property="og:image:height"]', { property: "og:image:height", content: "630" })
     ensureMeta('meta[name="twitter:card"]', { name: "twitter:card", content: "summary_large_image" })
     ensureMeta('meta[name="twitter:title"]', { name: "twitter:title", content: title })
     ensureMeta('meta[name="twitter:description"]', { name: "twitter:description", content: description })
-    ensureMeta('meta[name="twitter:image"]', { name: "twitter:image", content: heroImage })
+    ensureMeta('meta[name="twitter:site"]', { name: "twitter:site", content: "@_Deepa_bhandari" })
+    ensureMeta('meta[name="twitter:creator"]', { name: "twitter:creator", content: "@_Deepa_bhandari" })
+    ensureMeta('meta[name="twitter:image"]', { name: "twitter:image", content: shareImage })
+    ensureMeta('meta[name="twitter:image:alt"]', { name: "twitter:image:alt", content: "Deepa Bhandari portfolio preview" })
 
     const setIcon = (rel, sizes, type) => {
       let link = document.head.querySelector(`link[rel="${rel}"]${sizes ? `[sizes="${sizes}"]` : ""}`)
