@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { useState } from "react";
 
@@ -8,6 +7,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
 
   const navItems = [
     { name: "Home", link: "#home" },
+    { name: "Chemistry", link: "#chemistry-portfolio" },
     { name: "About", link: "#about" },
     // { name: "Skills", link: "#skills" },
     { name: "Projects", link: "#projects" },
@@ -43,25 +43,18 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
 
   return (
     <div className="fixed z-50 mt-4 flex w-full justify-center">
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
+      <nav
         className={`flex items-center justify-center ${color.navBg} backdrop-blur-lg rounded-2xl px-4 lg:px-8 py-2 shadow-lg`}
       >
         <div className="flex w-full items-center justify-between space-x-6 lg:space-x-8">
           {/* Logo */}
-          <motion.a
-            href="/"
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-2"
-          >
+          <a href="/" className="flex items-center space-x-2">
             <span className={`text-xl font-bold ${color.textPrimary}`}>
               Portfolio
               {/* logo dot in pink */}
               <span className="text-pink-500">.</span>
             </span>
-          </motion.a>
+          </a>
 
           {/* Desktop nav items */}
           <div className="hidden items-center space-x-6 lg:flex">
@@ -74,20 +67,17 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                   onClick={() => handleNavClick(item.name)}
                   className="relative"
                 >
-                  <motion.span
+                  <span
                     className={`font-medium transition-colors duration-300 ${
                       isActive
                         ? color.textActive
                         : `${color.textSecondary} hover:text-rose-300`
                     }`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
                   >
                     {item.name}
-                  </motion.span>
+                  </span>
                   {isActive && (
-                    <motion.div
-                      layoutId="navbar-indicator"
+                    <div
                       className={`absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r rounded-full ${color.indicator}`}
                     />
                   )}
@@ -99,9 +89,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
           {/* Right side actions */}
           <div className="flex items-center space-x-2">
             {/* Dark mode toggle */}
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+            <button
               onClick={toggleDarkMode}
               className={`p-2 rounded-full ${
                 darkMode ? "bg-gray-700" : "bg-gray-200"
@@ -113,22 +101,19 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
               ) : (
                 <Moon className="h-5 w-5 text-gray-700" />
               )}
-            </motion.button>
+            </button>
 
             {/* Desktop "Hire Me" button */}
-            <motion.a
+            <a
               href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
               className={`hidden rounded-full bg-gradient-to-r ${color.button} px-6 py-2 font-semibold text-white shadow-md transition-shadow hover:shadow-lg lg:block`}
             >
               Hire Me
-            </motion.a>
+            </a>
 
             {/* Mobile menu button */}
             <div className="flex items-center space-x-4 px-2 lg:hidden">
-              <motion.button
-                whileTap={{ scale: 0.9 }}
+              <button
                 onClick={() => setIsMenuOpen((prev) => !prev)}
                 className={`rounded-lg p-2 ${
                   darkMode ? "bg-gray-700" : "bg-gray-200"
@@ -147,18 +132,14 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                     }`}
                   />
                 )}
-              </motion.button>
+              </button>
             </div>
           </div>
         </div>
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+          <div
             className={`absolute left-0 right-0 top-full mt-2 rounded-xl border shadow-lg backdrop-blur-lg lg:hidden ${
               darkMode ? "border-gray-700 bg-gray-900/95" : "border-gray-200 bg-white/95"
             }`}
@@ -173,8 +154,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                     onClick={() => handleNavClick(item.name)}
                     className="block"
                   >
-                    <motion.div
-                      whileHover={{ x: 5 }}
+                    <div
                       className={`rounded-lg py-3 px-4 text-center ${
                         isActive
                           ? darkMode
@@ -190,23 +170,22 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                       >
                         {item.name}
                       </span>
-                    </motion.div>
+                    </div>
                   </a>
                 );
               })}
 
-              <motion.a
+              <a
                 href="#contact"
                 onClick={() => setIsMenuOpen(false)}
-                whileTap={{ scale: 0.95 }}
                 className={`block rounded-lg bg-gradient-to-r ${color.button} py-3 px-4 text-center font-semibold text-white shadow-md`}
               >
                 Hire Me
-              </motion.a>
+              </a>
             </div>
-          </motion.div>
+          </div>
         )}
-      </motion.nav>
+      </nav>
     </div>
   );
 };

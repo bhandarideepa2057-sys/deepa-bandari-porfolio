@@ -1,0 +1,31 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Deepa Bhandari | MSc Chemistry Student &amp; Teacher</title>
+  <desc id="desc">Electrocatalysis, HER, OER, water splitting, and chemistry education.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0f1f" />
+      <stop offset="50%" stop-color="#161a2e" />
+      <stop offset="100%" stop-color="#0b0f1f" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ec4899" />
+      <stop offset="100%" stop-color="#f97316" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="180" cy="120" r="120" fill="#ec4899" opacity="0.2" />
+  <circle cx="1040" cy="520" r="150" fill="#22d3ee" opacity="0.2" />
+  <rect x="90" y="130" width="8" height="370" fill="url(#accent)" />
+  <text x="130" y="210" fill="#f8fafc" font-family="Manrope, Arial, sans-serif" font-size="48" font-weight="700">
+    Deepa Bhandari
+  </text>
+  <text x="130" y="270" fill="#cbd5f5" font-family="Manrope, Arial, sans-serif" font-size="26" font-weight="500">
+    MSc Chemistry Student | Teacher
+  </text>
+  <text x="130" y="340" fill="#94a3b8" font-family="Manrope, Arial, sans-serif" font-size="22">
+    Electrocatalysis · HER · OER · Water Splitting
+  </text>
+  <text x="130" y="380" fill="#94a3b8" font-family="Manrope, Arial, sans-serif" font-size="20">
+    Sustainable energy research and student-centered teaching
+  </text>
+</svg>
